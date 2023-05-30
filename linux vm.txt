@@ -1,0 +1,23 @@
+create a UI azure storage account and a container inside it => when ever you do terraform init .tf state will come into container
+
+create a new folder with backend.tf file => directly copy and paste conetnt from offcial documentation just 
+google=> terraform azurerm backend,  in backend.tf file give necessary details of storage account created above 
+apply commands of terraform init , terraform workspace list => shows default but change to dev 
+=> terraform workspace new dev =>again we shouid => terraform init
+=> now check for storage account container that  dev .tf state  files created or not
+=> copy all files from earlier classes and do => terraform apply -var-file="dev.tfvars" -auto-approve
+
+
+create a ms sql server, ms sql database directly or use module of Azure / Database from terraform registry or 
+directly do copy and paste from terraform documentation => just google the => terraform ms sql server , ms sql db which is more easy
+see once format function from offcial documentation => google => terraform format function
+create a database.tf file copy content from docu. and edit details and also add depends on dont forget
+do => terraform apply -var-file="dev.tfvars" -auto-approve
+----------------------------------------------------------------------------------------------------------------------------------------------
+to create a linux vm first we need to create a vnet(already have) and its security group, rules, IP and Nic for that toal networking we need to do for vm
+use directly from official documentation => google => terraform azurerm security group copy and paste in webnic.tf and do necessary changes
+
+create a Linux VM, its Null resource => goto terraform module registry => Compute => go to usage, copy and paste in webvm.tf file(create it first) or
+use directly from official documentation => google => azure linux vm terraform copy and paste in webvm.tf and do necessary changes
+add running versions in first inputs.tf and dev.tfvars for linux vm
+

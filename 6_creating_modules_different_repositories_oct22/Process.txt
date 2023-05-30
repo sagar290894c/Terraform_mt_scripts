@@ -1,0 +1,31 @@
+Create folder structure as from main folders to sub folders/sub folders/subfolders
+
+Outputs =>  copy all configuration files from previous class to creating_output_only_oct22 and 
+            add Outputs.tf file for getting the created resources in command line
+
+
+
+a) Usage of modules from Local Path
+   Similarly in   module_usage_demo_oct22_1_local\modules  copy all files from previous classes except dev.tfvars file, 
+   copy outputs.tf file from outputs folder in  module_usage_demo_oct22_1_local create  provider.tf , main.tf files and apply cmd's of                           terraform init, validate , terraform apply -auto-approve
+
+
+
+b) Usage of modules from Github Path 
+   again in   module_usage_demo_oct22__github\modules   copy all files from previous classes except dev.tfvars file, 
+   copy outputs.tf file from outputs folder in  module_usage_demo_oct22_1_local create  provider.tf , main.tf files and apply cmd's of                                 terraform init, validate , terraform apply -auto-approve
+
+   => for github first push .tf files except provider.tf and dev.tfvars files to use github path ok
+   just change the source from local path to github link thatsol and apply terraform commands (bychanging source you can perform same steps in
+   module_usage_demo_oct22_1_local folder only directly without any steps)
+
+
+
+c) Usage of modules from Generic Git Repository
+   again in   module_usage_demo_oct22__Generic_Git_Repository\modules  copy all files from previous classes except dev.tfvars file, 
+   copy outputs.tf file from outputs folder in  module_usage_demo_oct22_1_local create  provider.tf , main.tf files and apply cmd's of                                 terraform init, validate , terraform apply -auto-approve
+
+   => for github first push .tf files except provider.tf and dev.tfvars files to use generic git path ok
+   just change the source from local path to generic git link thatsol and apply terraform commands (bychanging source you can perform same steps in
+   module_usage_demo_oct22_1_local folder only directly without any steps)
+   
