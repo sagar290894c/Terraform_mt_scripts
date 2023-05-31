@@ -79,9 +79,13 @@ resource "azurerm_linux_virtual_machine" "waste_lvm" {
   size                = "Standard_B1s"
 
   admin_username = "sagar290894c"
-  admin_password = "Bingo9044..."
 
   network_interface_ids = [azurerm_network_interface.waste_nic.id]
+  
+  admin_ssh_key {
+    username       = "sagar290894c"
+    public_key     = file("~/.ssh/id_rsa.pub")                         # linux vm path for storing key and
+  }                                                                    # the same key shouid exists in my lapi
 
   os_disk {
     name              = "osdisk9044"
@@ -97,10 +101,6 @@ resource "azurerm_linux_virtual_machine" "waste_lvm" {
   }
 
   computer_name = "computer9044"
-  admin_ssh_key {
-    username       = "sagar290894c"
-    public_key     = file("~/.ssh/id_rsa.pub")                         # linux vm path for storing key and
-  }                                                                    # the same key shouid exists in my lapi
   depends_on = [ azurerm_network_interface.waste_nic ]
 }
 # ssh -i C:\Users\SAGAR\.ssh\id_rsa sagar290894c@_ _ _ _ _
