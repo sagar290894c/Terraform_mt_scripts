@@ -36,6 +36,11 @@ resource "azurerm_linux_virtual_machine" "waste_lvm" {
   admin_username = var.vm_details.admin_username
 
   network_interface_ids = [azurerm_network_interface.waste_nic[count.index].id]
+    
+  admin_ssh_key {
+    username       = var.ssh_details.username
+    public_key     = file(var.ssh_details.public_key)
+  }
 
   os_disk {
     caching           = "ReadWrite"
@@ -50,10 +55,6 @@ resource "azurerm_linux_virtual_machine" "waste_lvm" {
   }
 
   computer_name = var.vm_details.computer_name
-  admin_ssh_key {
-    username       = var.ssh_details.username
-    public_key     = file(var.ssh_details.public_key)
-  }
   depends_on = [ azurerm_network_interface.waste_nic ]
 }
 
