@@ -21,7 +21,6 @@ resource "azurerm_subnet" "waste_subnet" {
     resource_group_name = var.resourcegroup_details.name
     address_prefixes = [ cidrsubnet(var.vnet_details.address_space[0],8,count.index) ]
     depends_on = [
-      azurerm_resource_group.waste_resgrp,
       azurerm_virtual_network.waste_vnet
     ]
   
@@ -35,7 +34,6 @@ resource "azurerm_linux_virtual_machine" "waste_lvm" {
   size                = var.vm_details.size
 
   admin_username = var.vm_details.admin_username
-  admin_password = var.vm_details.admin_password
 
   network_interface_ids = [azurerm_network_interface.waste_nic[count.index].id]
 
@@ -100,8 +98,6 @@ resource "azurerm_network_interface" "waste_nic" {
     public_ip_address_id          = azurerm_public_ip.waste_ip[count.index].id
   }
   depends_on = [ 
-    azurerm_network_security_group.waste_nsg,
-    azurerm_virtual_network.waste_vnet,
     azurerm_public_ip.waste_ip
    ]
 }
